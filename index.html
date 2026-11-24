@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+<title>ICM TIJUCAS</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <button id="menuBtn" title="Arquivos">☰</button>
+  <h1>ICM TIJUCAS</h1>
+  <div class="tools">
+    <button id="darkBtn">MODO NOTURNO</button>
+    <button id="tunerBtn">AFINADOR</button>
+    <select id="zoomSel"><option>30%</option><option>50%</option><option selected>80%</option><option>100%</option><option>110%</option></select>
+    <select id="modeSel">
+      <option value="cont">Contínua</option>
+      <option value="vert">Vertical, página a página</option>
+      <option value="lat">Lateral, página a página</option>
+    </select>
+    <button id="openBtn" class="primary">ABRIR NOVO ARQUIVO PDF</button>
+    <button id="penBtn">Caneta</button>
+    <label>Espessura <input type="range" id="thick" min="1" max="12" value="3"></label>
+    <input type="color" id="color" value="#d90429">
+    <button id="textBtn">INSERIR Texto</button>
+    <button id="undoBtn">↶</button>
+  </div>
+</header>
+<div id="tabs"></div>
+<div id="layout">
+  <aside id="side">
+    <div class="sidebtns"><button id="newFolder">+ Pasta</button><button id="refresh">Atualizar</button></div>
+    <input id="search" placeholder="Digite para buscar em todas as páginas.">
+    <h3>Arquivos encontrados</h3>
+    <div id="library"></div>
+    <label class="addfiles">+ Adicionar PDFs à pasta<input type="file" id="addLib" accept="application/pdf" multiple hidden></label>
+    <a href="privacidade.html" class="priv">Política de Privacidade</a>
+  </aside>
+  <main id="viewer">
+    <div id="empty">
+      <img src="icons/icon-192.png" alt="" onerror="this.style.display='none'">
+      <h2>Nenhum PDF aberto</h2>
+      <p>Abra um arquivo do seu computador, tablet ou celular para começar a ler e anotar.<br>Cada PDF aberto vira uma aba separada.</p>
+      <button class="primary" id="o1">Abrir PDF</button> <button id="o2">Abrir foto de partitura</button>
+      <p class="hint">ou arraste e solte um arquivo .pdf aqui</p>
+    </div>
+    <div id="pages"></div>
+    <div id="nav" hidden><button id="prev">‹</button><span id="pg"></span><button id="next">›</button></div>
+  </main>
+</div>
+<div id="tuner" hidden>
+  <div id="note">–</div><div id="hz"></div><div id="meter"><i id="needle"></i></div><div id="cents"></div>
+  <button id="tunerClose">Fechar</button>
+</div>
+<input type="file" id="fileIn" accept="application/pdf" hidden>
+<input type="file" id="imgIn" accept="image/*" hidden>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
